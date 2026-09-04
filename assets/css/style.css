@@ -2,7 +2,7 @@
 
 :root {
   --ground: #fbfaf8;
-  --ink: #1a1a18;
+  --ink: #0e0e0c;
   --meta: #8c8880;
   --rule: #ddd8cb;
   --slate: #4a5f7a;
@@ -10,6 +10,10 @@
 }
 
 * { box-sizing: border-box; }
+
+html {
+  font-size: 18px;
+}
 
 html, body {
   margin: 0;
@@ -21,8 +25,8 @@ body {
   color: var(--ink);
   font-family: 'Source Serif 4', 'Fraunces', serif;
   font-optical-sizing: auto;
-  font-weight: 300;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,7 +56,7 @@ h1, h2, h3 {
 .caps-label {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--meta);
@@ -84,7 +88,7 @@ h1, h2, h3 {
 .header-grid {
   max-width: 1380px;
   margin: 0 auto;
-  padding: 23px 52px;
+  padding: 18px 52px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
@@ -96,8 +100,8 @@ h1, h2, h3 {
 }
 
 .brand-logo {
-  height: 34px;
-  width: 34px;
+  height: 44px;
+  width: 44px;
   border-radius: 50%;
   display: block;
 }
@@ -112,8 +116,8 @@ h1, h2, h3 {
 .nav-link {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 13px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--meta);
 }
@@ -165,12 +169,8 @@ h1, h2, h3 {
   width: 100%;
   display: grid;
   grid-template-columns: 30% 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
   padding: 44px 0 32px;
-}
-
-.hero-intro p {
-  font-size: 16px;
 }
 
 .practice-facts {
@@ -181,7 +181,7 @@ h1, h2, h3 {
 
 .practice-facts div {
   color: var(--meta);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.9;
 }
 
@@ -192,7 +192,7 @@ h1, h2, h3 {
 }
 
 .hero-links a {
-  font-size: 13px;
+  font-size: 14px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 2px;
 }
@@ -203,6 +203,36 @@ h1, h2, h3 {
   padding-top: 2px;
 }
 
+/* Home uses plain rectangular photos rather than the circular duotone
+   plate — the Projects wheel keeps that treatment untouched. */
+
+.home-page .wheel-item {
+  margin-bottom: 48px;
+}
+
+.home-page .project-plate {
+  border-radius: 0;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.home-page .project-plate:hover {
+  transform: none;
+}
+
+.home-page .plate-overlay,
+.home-page .plate-content {
+  display: none;
+}
+
+.home-page .plate-image img {
+  transition: filter 350ms ease;
+}
+
+.home-page .project-plate:hover .plate-image img {
+  filter: contrast(1.05) brightness(0.94);
+}
+
 /* ============================================================
    ABOUT
    ============================================================ */
@@ -210,21 +240,21 @@ h1, h2, h3 {
 .about-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 16px;
   padding: 70px 0 64px;
 }
 
-.about-columns p { max-width: none; font-size: 16px; }
+.about-columns p { max-width: none; }
 
-.about-columns a.cv-link {
+.cv-link {
   display: inline-block;
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 14px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 2px;
 }
 
-.about-columns a.cv-link:hover { border-color: var(--ink); }
+.cv-link:hover { border-color: var(--ink); }
 
 .about-portrait {
   width: 280px;
@@ -245,7 +275,7 @@ h1, h2, h3 {
   border-top: 1px solid var(--rule);
   margin-top: 24px;
   padding-top: 18px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--meta);
   line-height: 1.8;
 }
@@ -320,7 +350,7 @@ h1, h2, h3 {
 .projects-layout {
   display: grid;
   grid-template-columns: 40% 1fr;
-  gap: 52px;
+  gap: 28px;
   padding-top: 56px;
 }
 
@@ -340,9 +370,13 @@ h1, h2, h3 {
 .projects-intro a {
   display: inline-block;
   margin-top: 20px;
-  font-size: 13px;
+  font-size: 14px;
   border-bottom: 1px solid var(--rule);
   padding-bottom: 2px;
+}
+
+.projects-intro .cv-link {
+  margin-top: 10px;
 }
 
 .projects-intro a:hover { border-color: var(--ink); }
@@ -418,7 +452,7 @@ h1, h2, h3 {
 .plate-content .plate-title {
   font-family: 'Fraunces', serif;
   font-weight: 400;
-  font-size: 26px;
+  font-size: 29px;
   color: var(--warm-white);
   letter-spacing: -0.01em;
 }
@@ -426,7 +460,7 @@ h1, h2, h3 {
 .plate-content .plate-meta {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--warm-white);
@@ -443,7 +477,7 @@ h1, h2, h3 {
   margin-top: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--meta);
@@ -460,7 +494,7 @@ h1, h2, h3 {
 .all-projects-link {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
@@ -469,7 +503,7 @@ h1, h2, h3 {
 .projects-closing p {
   max-width: 32ch;
   margin: 24px auto 0;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--meta);
 }
 
@@ -486,7 +520,7 @@ h1, h2, h3 {
   width: 100%;
   display: grid;
   grid-template-columns: 34% 1fr;
-  gap: 40px;
+  gap: 20px;
   padding: 44px 0 0;
 }
 
@@ -504,7 +538,7 @@ h1, h2, h3 {
   display: block;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--meta);
@@ -512,12 +546,11 @@ h1, h2, h3 {
 }
 
 .meta-row .field-value {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink);
 }
 
 .project-body { margin-top: 32px; }
-.project-body p { font-size: 16px; }
 
 .back-link-wrap {
   border-top: 1px solid var(--rule);
@@ -528,7 +561,7 @@ h1, h2, h3 {
 .back-link {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -568,11 +601,180 @@ h1, h2, h3 {
   bottom: 20px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--warm-white);
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================
+   CV PAGE
+   ============================================================ */
+
+.cv-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 0 96px;
+}
+
+.cv-title {
+  font-size: clamp(2.1rem, 2vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 18px 0 8px;
+}
+
+.cv-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin-bottom: 32px;
+}
+
+.cv-intro { margin-bottom: 16px; }
+
+.cv-group {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 1px solid var(--rule);
+}
+
+.cv-entry { margin-top: 40px; }
+.cv-entry:first-child { margin-top: 24px; }
+
+.cv-entry h3 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.cv-entry .cv-meta {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin-bottom: 14px;
+}
+
+.cv-list {
+  margin: 16px 0 0;
+  padding-left: 20px;
+}
+
+.cv-list li {
+  margin-bottom: 8px;
+}
+
+.cv-clients {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+/* ============================================================
+   WHAT WE DO — sticky LHS index, RHS continuous scroll,
+   scrollspy highlights the section currently in view
+   ============================================================ */
+
+.wwd-layout {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 20px;
+  padding-top: 56px;
+}
+
+.wwd-nav {
+  position: sticky;
+  top: 32px;
+  align-self: start;
+}
+
+.wwd-nav-list {
+  margin-top: 24px;
+}
+
+.wwd-nav-item {
+  display: block;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--meta);
+  transition: color 250ms ease;
+}
+
+.wwd-nav-item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.wwd-nav-item.active { color: var(--ink); }
+
+.wwd-sections { padding-bottom: 96px; }
+
+.wwd-section {
+  padding-top: 8px;
+  margin-bottom: 72px;
+}
+
+.wwd-section:last-child { margin-bottom: 0; }
+
+.wwd-section h2 {
+  font-size: 1.7rem;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+
+.wwd-section .wwd-tag {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--meta);
+  margin-bottom: 20px;
+}
+
+.fee-table {
+  margin-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+
+.fee-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.fee-row .fee-name { color: var(--ink); }
+.fee-row .fee-price {
+  color: var(--meta);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.fee-note {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--meta);
 }
 
 /* ============================================================
@@ -729,5 +931,19 @@ h1, h2, h3 {
   }
 
   .gallery-slide:last-child { margin-bottom: 0; }
+
+  /* ---------- What We Do: single column, index list stops sticking ---------- */
+
+  .wwd-layout {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .wwd-nav {
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .cv-content { padding: 40px 0 64px; }
 
 }

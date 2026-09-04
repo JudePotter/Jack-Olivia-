@@ -54,3 +54,30 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
   sync();
   mq.addEventListener('change', sync);
 })();
+
+// What We Do page: highlight the LHS index item matching whichever
+// RHS section is currently in view.
+(function () {
+  var sections = document.querySelectorAll('.wwd-section');
+  if (!sections.length) return;
+
+  var navItems = document.querySelectorAll('.wwd-nav-item');
+  var byId = {};
+  navItems.forEach(function (item) {
+    var id = item.getAttribute('href').replace('#', '');
+    byId[id] = item;
+  });
+
+  function setActive(id) {
+    navItems.forEach(function (item) { item.classList.remove('active'); });
+    if (byId[id]) byId[id].classList.add('active');
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function (section) { observer.observe(section); });
+})();
