@@ -89,6 +89,10 @@ h1, h2, h3 {
 /* ---------- header ---------- */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ground);
   border-bottom: 1px solid var(--rule);
 }
 
