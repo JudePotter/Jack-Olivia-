@@ -81,3 +81,12 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
 
   sections.forEach(function (section) { observer.observe(section); });
 })();
+
+// FAQ accordion: each question toggles its own answer independently.
+document.querySelectorAll('.faq-item').forEach(function (item) {
+  var button = item.querySelector('.faq-question');
+  if (!button) return;
+  button.addEventListener('click', function () {
+    item.classList.toggle('open');
+  });
+});
