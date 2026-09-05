@@ -55,13 +55,13 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
   mq.addEventListener('change', sync);
 })();
 
-// What We Do page: highlight the LHS index item matching whichever
+// What We Do / CV pages: highlight the LHS index item matching whichever
 // RHS section is currently in view.
 (function () {
-  var sections = document.querySelectorAll('.wwd-section');
+  var sections = document.querySelectorAll('.wwd-section, .cv-section');
   if (!sections.length) return;
 
-  var navItems = document.querySelectorAll('.wwd-nav-item');
+  var navItems = document.querySelectorAll('.wwd-nav-item, .cv-nav-item');
   var byId = {};
   navItems.forEach(function (item) {
     var id = item.getAttribute('href').replace('#', '');
