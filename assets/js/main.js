@@ -82,11 +82,46 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
   sections.forEach(function (section) { observer.observe(section); });
 })();
 
-// FAQ accordion: each question toggles its own answer independently.
-document.querySelectorAll('.faq-item').forEach(function (item) {
-  var button = item.querySelector('.faq-question');
-  if (!button) return;
-  button.addEventListener('click', function () {
-    item.classList.toggle('open');
+// FAQs page: clicking a question in the LHS index swaps in its answer
+// on the right, rather than expanding an accordion in place — long
+// answers get their own scrollable pane instead of overflowing the page.
+(function () {
+  var navItems = document.querySelectorAll('.faqs-nav-item');
+  if (!navItems.length) return;
+
+  var panels = document.querySelectorAll('.faqs-panel');
+  var answerPane = document.querySelector('.faqs-answer');
+  var mq = window.matchMedia('(max-width: 768px)');
+
+  function activate(id, updateHash) {
+    navItems.forEach(function (item) {
+      item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+    });
+    var target = null;
+    panels.forEach(function (panel) {
+      var isMatch = panel.id === id;
+      panel.classList.toggle('active', isMatch);
+      if (isMatch) target = panel;
+    });
+    if (updateHash && history.replaceState) {
+      history.replaceState(null, '', '#' + id);
+    }
+    if (mq.matches && target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (answerPane) {
+      answerPane.scrollTop = 0;
+    }
+  }
+
+  navItems.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      activate(item.getAttribute('href').replace('#', ''), true);
+    });
   });
-});
+
+  var initial = window.location.hash ? window.location.hash.replace('#', '') : null;
+  if (initial && document.getElementById(initial)) {
+    activate(initial, false);
+  }
+})();
