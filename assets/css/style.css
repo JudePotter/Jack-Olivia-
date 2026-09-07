@@ -978,13 +978,31 @@ h1, h2, h3 {
   margin: 18px 0 8px;
 }
 
-.faqs-tag {
-  display: block;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.faqs-intro {
+  color: var(--meta);
+  max-width: 56ch;
+  margin-bottom: 0;
+}
+
+.faqs-group {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.faqs-group:first-of-type {
+  margin-top: 40px;
+}
+
+.faqs-group h2 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.faqs-contact p {
+  margin-bottom: 8px;
   color: var(--meta);
 }
 
