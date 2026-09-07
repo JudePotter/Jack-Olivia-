@@ -115,8 +115,8 @@ h1, h2, h3 {
 }
 
 .brand-logo {
-  height: 44px;
-  width: 44px;
+  height: 48px;
+  width: 48px;
   border-radius: 50%;
   display: block;
 }
@@ -187,6 +187,8 @@ h1, h2, h3 {
   gap: 20px;
   padding: 44px 0 32px;
 }
+
+.home-col-text p { max-width: none; }
 
 .practice-facts {
   border-top: 1px solid var(--rule);
@@ -264,9 +266,9 @@ h1, h2, h3 {
 .cv-link {
   display: inline-block;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 17px;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: 2px;
+  padding-bottom: 3px;
 }
 
 .cv-link:hover { border-color: var(--ink); }
@@ -585,6 +587,7 @@ h1, h2, h3 {
   padding: 0;
   display: flex;
   flex-direction: column;
+  gap: 6px;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
 }
@@ -610,17 +613,8 @@ h1, h2, h3 {
   display: block;
 }
 
-.gallery-caption {
-  position: absolute;
-  left: 24px;
-  bottom: 20px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--warm-white);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+.mono-gallery .gallery-slide img {
+  filter: grayscale(1) contrast(0.95);
 }
 
 /* ============================================================
@@ -686,6 +680,7 @@ h1, h2, h3 {
 .cv-section {
   padding-top: 8px;
   margin-bottom: 72px;
+  scroll-margin-top: 104px;
 }
 
 .cv-section:last-child { margin-bottom: 0; }
@@ -695,6 +690,20 @@ h1, h2, h3 {
   font-weight: 300;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
+}
+
+.cv-portrait {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.cv-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .cv-title {
@@ -755,7 +764,7 @@ h1, h2, h3 {
 }
 
 .cv-client-logos img {
-  height: 46px;
+  height: 84px;
   width: auto;
   object-fit: contain;
 }
@@ -855,11 +864,16 @@ h1, h2, h3 {
   border-bottom-color: var(--ink);
 }
 
-.wwd-sections { padding-bottom: 96px; }
+.wwd-sections {
+  padding-bottom: 96px;
+  padding-left: clamp(24px, 6vw, 96px);
+  max-width: 900px;
+}
 
 .wwd-section {
   padding-top: 8px;
   margin-bottom: 72px;
+  scroll-margin-top: 104px;
 }
 
 .wwd-section:last-child { margin-bottom: 0; }
@@ -880,6 +894,16 @@ h1, h2, h3 {
   text-transform: uppercase;
   color: var(--meta);
   margin-bottom: 20px;
+}
+
+.wwd-faq-callout {
+  margin-top: 72px;
+  padding-top: 32px;
+}
+
+.wwd-faq-callout p {
+  margin-top: 24px;
+  margin-bottom: 0;
 }
 
 .fee-table {
@@ -938,6 +962,31 @@ h1, h2, h3 {
 .wwd-list li:last-child { margin-bottom: 0; }
 
 .wwd-list strong { font-weight: 400; }
+
+/* ---------- FAQs page ---------- */
+
+.faqs-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 64px 0 96px;
+}
+
+.faqs-title {
+  font-size: clamp(2.1rem, 2vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 18px 0 8px;
+}
+
+.faqs-tag {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--meta);
+}
 
 /* ---------- FAQ accordion ---------- */
 
@@ -1176,6 +1225,11 @@ h1, h2, h3 {
     overflow-y: visible;
   }
 
+  .wwd-sections {
+    padding-left: 0;
+    max-width: none;
+  }
+
   /* ---------- CV: single column, index list stops sticking ---------- */
 
   .cv-layout {
@@ -1194,5 +1248,22 @@ h1, h2, h3 {
   }
 
   .cv-sections { max-width: none; }
+
+  /* ---------- FAQs: tighter spacing, wrapping question rows ---------- */
+
+  .faqs-page { padding: 40px 0 64px; }
+
+  .faq-question {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
+    font-size: 0.95rem;
+  }
+
+  .faq-answer-inner p {
+    font-size: 14px;
+    padding-bottom: 18px;
+    max-width: none;
+  }
 
 }
