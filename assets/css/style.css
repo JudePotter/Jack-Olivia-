@@ -7,6 +7,7 @@
   --rule: #ddd8cb;
   --slate: #4a5f7a;
   --warm-white: #fdfaf4;
+  --error: #b84a4a;
 }
 
 * { box-sizing: border-box; }
@@ -32,6 +33,18 @@ body {
 }
 
 img { display: block; max-width: 100%; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 a { color: inherit; text-decoration: none; }
 
@@ -1065,6 +1078,434 @@ h1, h2, h3 {
 }
 
 /* ============================================================
+   CONTACT / ENQUIRY FORM
+   ============================================================ */
+
+.contact-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 64px 0 96px;
+}
+
+.contact-title {
+  font-size: clamp(2.1rem, 2vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  margin: 18px 0 20px;
+}
+
+.contact-intro {
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+.contact-page fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-page legend {
+  padding: 0;
+  width: 100%;
+}
+
+.form-section {
+  margin-top: 56px;
+}
+
+.form-section:first-of-type {
+  margin-top: 40px;
+}
+
+.form-section .section-label-block {
+  margin-bottom: 24px;
+}
+
+.question-label {
+  display: block;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.required {
+  color: var(--meta);
+  margin-left: 3px;
+}
+
+.field-help {
+  font-size: 13px;
+  color: var(--meta);
+  margin: 8px 0 12px;
+}
+
+.field-stack .field + .field {
+  margin-top: 24px;
+}
+
+.field label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.contact-page input[type="text"],
+.contact-page input[type="email"],
+.contact-page input[type="tel"],
+.contact-page textarea {
+  display: block;
+  width: 100%;
+  height: 48px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0;
+  font-family: 'Source Serif 4', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  transition: border-color 200ms ease;
+}
+
+.contact-page input[type="text"]::placeholder,
+.contact-page input[type="email"]::placeholder,
+.contact-page input[type="tel"]::placeholder,
+.contact-page textarea::placeholder {
+  color: var(--meta);
+}
+
+.contact-page input[type="text"]:focus,
+.contact-page input[type="email"]:focus,
+.contact-page input[type="tel"]:focus,
+.contact-page textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.contact-page textarea {
+  height: auto;
+  min-height: 180px;
+  padding-top: 12px;
+  resize: vertical;
+}
+
+.field-error {
+  font-size: 12px;
+  color: var(--error);
+  margin: 6px 0 0;
+  min-height: 0;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* ---------- custom radio ---------- */
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.radio-dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 200ms ease;
+}
+
+.radio-row:hover .radio-dot {
+  border-color: var(--ink);
+}
+
+.radio-dot-inner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.contact-page input:checked + .radio-dot {
+  border-color: var(--ink);
+}
+
+.contact-page input:checked + .radio-dot .radio-dot-inner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contact-page input:focus-visible + .radio-dot,
+.contact-page input:focus-visible + .checkbox-box {
+  outline: 2px solid var(--slate);
+  outline-offset: 2px;
+}
+
+.radio-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+/* ---------- custom checkbox ---------- */
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox-box {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.checkbox-row:hover .checkbox-box {
+  border-color: var(--ink);
+}
+
+.checkbox-tick {
+  width: 10px;
+  height: 10px;
+  color: var(--ground);
+  opacity: 0;
+  transition: opacity 100ms ease;
+}
+
+.contact-page input:checked + .checkbox-box {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.contact-page input:checked + .checkbox-box .checkbox-tick {
+  opacity: 1;
+}
+
+.checkbox-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+/* ---------- service accordion ---------- */
+
+.service-group {
+  border-top: 1px solid var(--rule);
+}
+
+.service-option {
+  border-bottom: 1px solid var(--rule);
+  padding: 6px 0;
+}
+
+.service-detail-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+
+.service-option.selected .service-detail-wrap {
+  grid-template-rows: 1fr;
+}
+
+.service-detail-inner {
+  overflow: hidden;
+}
+
+.service-description {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--meta);
+  max-width: 56ch;
+  margin: 8px 0 0 28px;
+}
+
+.service-detail-inner .upload-zone {
+  margin: 16px 0 20px 28px;
+}
+
+/* ---------- upload zone ---------- */
+
+.upload-zone {
+  border: 1px dashed var(--rule);
+  padding: 24px;
+  text-align: center;
+  transition: border-color 200ms ease;
+}
+
+.upload-zone.drag-over {
+  border-color: var(--ink);
+}
+
+.upload-prompt {
+  font-size: 13px;
+  color: var(--meta);
+  margin: 0 0 14px;
+}
+
+.upload-trigger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.upload-trigger:hover {
+  color: var(--slate);
+}
+
+.upload-helper {
+  font-size: 12px;
+  color: var(--meta);
+  margin: 8px 0 0;
+}
+
+.upload-file-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.upload-file-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 4px 8px;
+}
+
+.upload-file-remove {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--meta);
+  font-size: 14px;
+  line-height: 1;
+  margin-left: 8px;
+}
+
+.upload-file-remove:hover {
+  color: var(--ink);
+}
+
+.upload-error {
+  font-size: 12px;
+  color: var(--error);
+  margin: 8px 0 0;
+}
+
+.upload-error:empty {
+  display: none;
+}
+
+/* ---------- submit ---------- */
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-top: 40px;
+  padding: 0 32px;
+  background: var(--ink);
+  color: var(--ground);
+  border: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 200ms ease, opacity 200ms ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--slate);
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (min-width: 769px) {
+  .submit-btn {
+    width: auto;
+    min-width: 240px;
+  }
+}
+
+.required-note {
+  font-size: 12px;
+  color: var(--meta);
+  margin-top: 24px;
+}
+
+.submit-error {
+  font-size: 14px;
+  color: var(--error);
+  margin-top: 24px;
+}
+
+.success-message {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 96px 0;
+  text-align: center;
+}
+
+.success-message h2 {
+  font-size: 1.9rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.success-message p {
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
    MOBILE (≤768px) — continuous scroll, condensing header
    Nothing above this breakpoint is touched: every rule here is
    scoped inside this single media query, so desktop is byte-for-
@@ -1072,6 +1513,13 @@ h1, h2, h3 {
    ============================================================ */
 
 @media (max-width: 768px) {
+
+  .contact-page { padding: 40px 0 64px; }
+
+  .service-description,
+  .service-detail-inner .upload-zone {
+    margin-left: 0;
+  }
 
   .content { padding: 0 20px; }
 

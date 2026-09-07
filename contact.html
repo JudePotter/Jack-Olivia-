@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enquiry — Jack Olivia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/png" href="assets/images/logo-badge.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-grid">
+    <div class="brand-wrap">
+      <a href="index.html"><img src="assets/images/logo-badge.png" alt="Jack Olivia" class="brand-logo"></a>
+    </div>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="what-we-do.html" class="nav-link">What We Do</a>
+      <a href="faqs.html" class="nav-link">FAQs</a>
+      <a href="contact.html" class="nav-link active" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content">
+  <div class="contact-page">
+
+    <div class="section-label-block">
+      <span class="caps-label">Enquiry</span>
+      <hr class="rule">
+    </div>
+
+    <h1 class="contact-title">Start your enquiry</h1>
+    <p class="contact-intro">Tell us a little about your property and what you need help with. Providing as much information as possible allows us to review your enquiry and advise on the next steps.</p>
+
+    <form id="enquiry-form" novalidate>
+
+      <input type="text" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
+
+      <!-- Section 1: Your details -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Your details</span>
+          <hr class="rule">
+        </div>
+
+        <fieldset class="field-group">
+          <legend class="sr-only">Your details</legend>
+
+          <div class="field-stack">
+            <div class="field">
+              <label for="name">Name<span class="required">*</span></label>
+              <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+              <p class="field-error" data-error-for="name" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email address<span class="required">*</span></label>
+              <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+              <p class="field-error" data-error-for="email" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="phone">Contact number<span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required aria-required="true" autocomplete="tel">
+              <p class="field-error" data-error-for="phone" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="addressLine1">First line of property address<span class="required">*</span></label>
+              <input type="text" id="addressLine1" name="addressLine1" required aria-required="true" autocomplete="address-line1">
+              <p class="field-error" data-error-for="addressLine1" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="postcode">Postcode<span class="required">*</span></label>
+              <input type="text" id="postcode" name="postcode" required aria-required="true" autocomplete="postal-code">
+              <p class="field-error" data-error-for="postcode" aria-live="polite"></p>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Section 2: About the property -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">About the property</span>
+          <hr class="rule">
+        </div>
+
+        <fieldset class="field-group">
+          <legend class="question-label">Property type<span class="required">*</span></legend>
+
+          <div class="radio-group">
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="detached" class="sr-only" required aria-required="true">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Detached house</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="semi-detached" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Semi-detached house</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="terraced" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Terraced house</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="flat" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Flat / Apartment</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="commercial" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Commercial property</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="propertyType" value="other" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Other</span>
+            </label>
+          </div>
+          <p class="field-error" data-error-for="propertyType" aria-live="polite"></p>
+        </fieldset>
+      </div>
+
+      <!-- Section 3: How can we help? -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">How can we help?</span>
+          <hr class="rule">
+        </div>
+
+        <fieldset class="field-group">
+          <legend class="question-label">Please select the service you require<span class="required">*</span></legend>
+
+          <div class="service-group">
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="ssi" class="sr-only" required aria-required="true">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Specific Structural Inspection (SSI)</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For a particular structural concern such as cracking, movement, a bowing wall, sagging floor or other localised defect.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please upload photographs of the area of concern where possible.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload photos">
+                    <button type="button" class="upload-trigger">UPLOAD PHOTOS</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="gsi" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">General Structural Inspection (GSI)</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For a broader assessment of the structural condition of a property or where several structural concerns have been identified.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">If you have an existing RICS survey, mortgage valuation or other report identifying the concerns, please attach it below.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload report or photos">
+                    <button type="button" class="upload-trigger">UPLOAD REPORT / PHOTOS</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="mortgage" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Mortgage / Lender Structural Inspection</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">Where your mortgage lender, valuer or surveyor has requested an inspection or report from a structural engineer.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please upload the relevant section of the mortgage valuation, survey or lender's request.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload document">
+                    <button type="button" class="upload-trigger">UPLOAD DOCUMENT</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="wall-removal" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Wall Removal</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For the removal or alteration of an internal or external wall.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please attach a floor plan or sketch clearly showing the wall you would like to remove.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload floor plan or sketch">
+                    <button type="button" class="upload-trigger">UPLOAD FLOOR PLAN / SKETCH</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="internal-alterations" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Internal Alterations</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For proposed alterations to the existing structure of your property.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please attach any architectural drawings, floor plans or sketches you currently have.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload plans">
+                    <button type="button" class="upload-trigger">UPLOAD PLANS</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="loft" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Loft Conversion</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For structural design associated with a proposed loft conversion.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please attach your architect's or designer's existing and proposed plans where available.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload plans">
+                    <button type="button" class="upload-trigger">UPLOAD PLANS</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="extension" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Rear / Side Extension</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">For structural design associated with a proposed extension.</p>
+                  <div class="upload-zone" data-zone="service">
+                    <p class="upload-prompt">Please attach your architect's existing and proposed plans where available.</p>
+                    <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload plans">
+                    <button type="button" class="upload-trigger">UPLOAD PLANS</button>
+                    <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+                    <div class="upload-file-list"></div>
+                    <p class="upload-error" aria-live="polite"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-option">
+              <label class="radio-row">
+                <input type="radio" name="service" value="other" class="sr-only">
+                <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+                <span class="radio-text">Other</span>
+              </label>
+              <div class="service-detail-wrap">
+                <div class="service-detail-inner">
+                  <p class="service-description">Please describe what you require in the text box below.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <p class="field-error" data-error-for="service" aria-live="polite"></p>
+        </fieldset>
+      </div>
+
+      <!-- Section 4: Tell us more -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Tell us more</span>
+          <hr class="rule">
+        </div>
+
+        <label for="description" class="question-label">Please briefly describe the property, the work you are considering or the structural issue you are concerned about.<span class="required">*</span></label>
+        <p class="field-help">If you are contacting us about cracking or movement, please tell us when you first noticed it and whether you believe it has changed over time.</p>
+        <textarea id="description" name="description" placeholder="Describe your property and requirements..." required aria-required="true" minlength="20"></textarea>
+        <p class="field-error" data-error-for="description" aria-live="polite"></p>
+      </div>
+
+      <!-- Section 5: Project status -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Project status</span>
+          <hr class="rule">
+        </div>
+
+        <fieldset class="field-group">
+          <legend class="question-label">Which best describes your project?<span class="required">*</span></legend>
+
+          <div class="radio-group">
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="considering-purchase" class="sr-only" required aria-required="true">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">I am considering purchasing the property</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="owner" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">I own the property</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="planning" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Planning / design stage</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="building-regs" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Building Regulations / technical design stage</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="construction-started" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Construction work has already started</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="projectStatus" value="other" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Other</span>
+            </label>
+          </div>
+          <p class="field-error" data-error-for="projectStatus" aria-live="polite"></p>
+        </fieldset>
+      </div>
+
+      <!-- Section 6: Timeline -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Timeline</span>
+          <hr class="rule">
+        </div>
+
+        <fieldset class="field-group">
+          <legend class="question-label">When do you require our services?<span class="required">*</span></legend>
+
+          <div class="radio-group">
+            <label class="radio-row">
+              <input type="radio" name="timeline" value="asap" class="sr-only" required aria-required="true">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">As soon as possible</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="timeline" value="1-2-weeks" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Within 1–2 weeks</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="timeline" value="within-month" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Within the next month</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="timeline" value="over-month" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">More than a month away</span>
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="timeline" value="initial-enquiry" class="sr-only">
+              <span class="radio-dot"><span class="radio-dot-inner"></span></span>
+              <span class="radio-text">Just making an initial enquiry</span>
+            </label>
+          </div>
+          <p class="field-error" data-error-for="timeline" aria-live="polite"></p>
+        </fieldset>
+      </div>
+
+      <!-- Section 7: Additional information -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Additional information</span>
+          <hr class="rule">
+        </div>
+
+        <p class="field-help">Plans, photographs, surveys and other relevant documents can be uploaded here.</p>
+
+        <div class="upload-zone" data-zone="general">
+          <input type="file" class="sr-only upload-input" multiple accept="application/pdf,image/jpeg,image/png" aria-label="Upload additional files">
+          <button type="button" class="upload-trigger">UPLOAD FILES</button>
+          <p class="upload-helper">Accepted: PDF, JPG, PNG, up to 5MB per file. Multiple files allowed.</p>
+          <div class="upload-file-list"></div>
+          <p class="upload-error" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <!-- Section 8: Consent -->
+      <div class="form-section">
+        <div class="section-label-block">
+          <span class="caps-label">Consent</span>
+          <hr class="rule">
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="consent" name="consent" class="sr-only" required aria-required="true">
+          <span class="checkbox-box">
+            <svg class="checkbox-tick" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l3 3 5-6" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
+          </span>
+          <span class="checkbox-text">I consent to Jack Olivia Structural Engineers storing my enquiry details and any uploaded documents for the purposes of responding to this enquiry.</span>
+        </label>
+        <p class="field-error" data-error-for="consent" aria-live="polite"></p>
+      </div>
+
+      <p class="submit-error" id="submit-error" role="alert" hidden></p>
+
+      <button type="submit" id="submit-btn" class="submit-btn" disabled>SUBMIT ENQUIRY</button>
+      <p class="required-note">Required fields are marked with an asterisk.</p>
+
+    </form>
+
+    <div class="success-message" id="success-message" hidden>
+      <h2>Thank you.</h2>
+      <p>We have received your enquiry and will be in touch shortly. In the meantime, if your matter is urgent, please call or WhatsApp Peter directly on 07584 622633.</p>
+    </div>
+
+  </div>
+</main>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/enquiry-form.js"></script>
+</body>
+</html>
