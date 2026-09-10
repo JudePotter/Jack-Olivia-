@@ -157,11 +157,11 @@
         </div>
 
         <fieldset class="field-group">
-          <legend class="question-label">Property type<span class="required">*</span></legend>
+          <legend class="question-label">Property type</legend>
 
           <div class="radio-group radio-group--grid">
             <label class="radio-row">
-              <input type="radio" name="propertyType" value="detached" class="sr-only" required aria-required="true">
+              <input type="radio" name="propertyType" value="detached" class="sr-only">
               <span class="radio-dot"><span class="radio-dot-inner"></span></span>
               <span class="radio-text">Detached house</span>
             </label>
@@ -203,13 +203,13 @@
         </div>
 
         <fieldset class="field-group">
-          <legend class="question-label">Please select the service you require<span class="required">*</span></legend>
+          <legend class="question-label">Please select the service you require</legend>
 
           <div class="service-group">
 
             <div class="service-option">
               <label class="radio-row">
-                <input type="radio" name="service" value="ssi" class="sr-only" required aria-required="true">
+                <input type="radio" name="service" value="ssi" class="sr-only">
                 <span class="radio-dot"><span class="radio-dot-inner"></span></span>
                 <span class="radio-text">Specific Structural Inspection (SSI)</span>
               </label>
@@ -379,9 +379,9 @@
           <hr class="rule">
         </div>
 
-        <label for="description" class="question-label">Please briefly describe the property, the work you are considering or the structural issue you are concerned about.<span class="required">*</span></label>
+        <label for="description" class="question-label">Please briefly describe the property, the work you are considering or the structural issue you are concerned about.</label>
         <p class="field-help">If you are contacting us about cracking or movement, please tell us when you first noticed it and whether you believe it has changed over time.</p>
-        <textarea id="description" name="description" placeholder="Describe your property and requirements..." required aria-required="true" minlength="20"></textarea>
+        <textarea id="description" name="description" placeholder="Describe your property and requirements..."></textarea>
         <p class="field-error" data-error-for="description" aria-live="polite"></p>
       </div>
 
@@ -393,11 +393,11 @@
         </div>
 
         <fieldset class="field-group">
-          <legend class="question-label">Which best describes your project?<span class="required">*</span></legend>
+          <legend class="question-label">Which best describes your project?</legend>
 
           <div class="radio-group radio-group--grid">
             <label class="radio-row">
-              <input type="radio" name="projectStatus" value="considering-purchase" class="sr-only" required aria-required="true">
+              <input type="radio" name="projectStatus" value="considering-purchase" class="sr-only">
               <span class="radio-dot"><span class="radio-dot-inner"></span></span>
               <span class="radio-text">I am considering purchasing the property</span>
             </label>
@@ -428,6 +428,13 @@
             </label>
           </div>
           <p class="field-error" data-error-for="projectStatus" aria-live="polite"></p>
+
+          <div class="reveal-wrap" id="projectStatusOtherWrap">
+            <div class="reveal-inner">
+              <label for="projectStatusOther" class="question-label reveal-label">Please explain further</label>
+              <textarea id="projectStatusOther" name="projectStatusOther" placeholder="Please explain further..."></textarea>
+            </div>
+          </div>
         </fieldset>
       </div>
 
@@ -439,13 +446,13 @@
         </div>
 
         <fieldset class="field-group">
-          <legend class="question-label">When do you require our services?<span class="required">*</span></legend>
+          <legend class="question-label">When do you require our services?</legend>
 
           <div class="radio-group radio-group--grid">
             <label class="radio-row">
-              <input type="radio" name="timeline" value="asap" class="sr-only" required aria-required="true">
+              <input type="radio" name="timeline" value="within-week" class="sr-only">
               <span class="radio-dot"><span class="radio-dot-inner"></span></span>
-              <span class="radio-text">As soon as possible</span>
+              <span class="radio-text">Within one week</span>
             </label>
             <label class="radio-row">
               <input type="radio" name="timeline" value="1-2-weeks" class="sr-only">
@@ -488,6 +495,9 @@
           <div class="upload-file-list"></div>
           <p class="upload-error" aria-live="polite"></p>
         </div>
+
+        <p class="field-help" style="margin-top: 20px;">If your enquiry relates to a property you are considering purchasing, you can also share the listing with us.</p>
+        <a href="https://www.rightmove.co.uk" target="_blank" rel="noopener" class="cv-link">View on Rightmove →</a>
       </div>
 
       <!-- Section 8: Consent -->

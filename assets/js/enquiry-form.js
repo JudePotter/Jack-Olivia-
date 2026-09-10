@@ -77,27 +77,6 @@
       if (!UK_POSTCODE.test(v)) return 'Please enter a valid UK postcode.';
       return '';
     },
-    propertyType: function () {
-      if (!radioValue('propertyType')) return 'Please select a property type.';
-      return '';
-    },
-    service: function () {
-      if (!radioValue('service')) return 'Please select the service you require.';
-      return '';
-    },
-    description: function () {
-      var v = form.querySelector('#description').value.trim();
-      if (v.length < 20) return 'Please provide a brief description (at least 20 characters).';
-      return '';
-    },
-    projectStatus: function () {
-      if (!radioValue('projectStatus')) return 'Please select an option.';
-      return '';
-    },
-    timeline: function () {
-      if (!radioValue('timeline')) return 'Please select an option.';
-      return '';
-    },
     consent: function () {
       if (!consentInput.checked) return 'Please confirm consent before submitting.';
       return '';
@@ -134,14 +113,15 @@
   });
 
   var descriptionEl = form.querySelector('#description');
-  descriptionEl.addEventListener('blur', function () { validateField('description'); });
-  descriptionEl.addEventListener('input', function () {
-    if (errorEl('description').textContent) validateField('description');
-  });
 
-  ['propertyType', 'service', 'projectStatus', 'timeline'].forEach(function (name) {
-    form.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
-      radio.addEventListener('change', function () { clearError(name); });
+  // ---------------- project status "Other" reveal ----------------
+
+  var projectStatusOtherWrap = document.getElementById('projectStatusOtherWrap');
+  form.querySelectorAll('input[name="projectStatus"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      if (projectStatusOtherWrap) {
+        projectStatusOtherWrap.classList.toggle('is-open', radio.value === 'other' && radio.checked);
+      }
     });
   });
 
@@ -268,7 +248,7 @@
 
     var formData = new FormData();
     formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('subject', 'New enquiry — ' + fieldEl('name').value.trim() + ' — ' + radioValue('service'));
+    formData.append('subject', 'New enquiry — ' + fieldEl('name').value.trim() + (radioValue('service') ? ' — ' + radioValue('service') : ''));
     formData.append('from_name', 'Jack Olivia Enquiry Form');
 
     formData.append('name', fieldEl('name').value.trim());
@@ -280,6 +260,7 @@
     formData.append('service', radioValue('service'));
     formData.append('description', descriptionEl.value.trim());
     formData.append('projectStatus', radioValue('projectStatus'));
+    formData.append('projectStatusOther', form.querySelector('#projectStatusOther').value.trim());
     formData.append('timeline', radioValue('timeline'));
     formData.append('consent', 'true');
 
