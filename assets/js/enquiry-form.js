@@ -262,6 +262,7 @@
     formData.append('projectStatus', radioValue('projectStatus'));
     formData.append('projectStatusOther', form.querySelector('#projectStatusOther').value.trim());
     formData.append('timeline', radioValue('timeline'));
+    formData.append('rightmoveLink', form.querySelector('#rightmoveLink').value.trim());
     formData.append('consent', 'true');
 
     filesForSelectedService().forEach(function (file, i) {

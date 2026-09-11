@@ -381,6 +381,7 @@
 
         <label for="description" class="question-label">Please briefly describe the property, the work you are considering or the structural issue you are concerned about.</label>
         <p class="field-help">If you are contacting us about cracking or movement, please tell us when you first noticed it and whether you believe it has changed over time.</p>
+        <p class="field-help">If the lender specifically requires the inspection or report to be undertaken or signed by a Chartered Engineer, please provide their requirements when requesting a quotation.</p>
         <textarea id="description" name="description" placeholder="Describe your property and requirements..."></textarea>
         <p class="field-error" data-error-for="description" aria-live="polite"></p>
       </div>
@@ -496,8 +497,10 @@
           <p class="upload-error" aria-live="polite"></p>
         </div>
 
-        <p class="field-help" style="margin-top: 20px;">If your enquiry relates to a property you are considering purchasing, you can also share the listing with us.</p>
-        <a href="https://www.rightmove.co.uk" target="_blank" rel="noopener" class="cv-link">View on Rightmove →</a>
+        <div class="field" style="margin-top: 20px;">
+          <label for="rightmoveLink">If you are removing a load-bearing wall, please paste the Rightmove link to the property, if available, so we can review the floor plans and identify the wall you are proposing to remove. Alternatively, please upload a floor plan above and clearly highlight the wall to be removed.</label>
+          <input type="url" id="rightmoveLink" name="rightmoveLink" placeholder="https://www.rightmove.co.uk/properties/..." autocomplete="off">
+        </div>
       </div>
 
       <!-- Section 8: Consent -->

@@ -632,6 +632,41 @@ h1, h2, h3 {
 }
 
 /* ============================================================
+   STRUCTURAL DRAWING EXAMPLES
+   ============================================================ */
+
+.drawing-examples-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+}
+
+.drawing-intro {
+  max-width: 56ch;
+  margin: 16px 0 40px;
+  font-size: 15px;
+  color: var(--meta);
+}
+
+.drawing-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.drawing-item {
+  border: 1px solid var(--rule);
+  background: #fff;
+  padding: 6px;
+}
+
+.drawing-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
    CV PAGE
    ============================================================ */
 
