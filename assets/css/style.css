@@ -216,10 +216,9 @@ h1, h2, h3 {
 }
 
 .home-links-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 28px;
-  row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   margin-top: 32px;
 }
 
@@ -636,34 +635,90 @@ h1, h2, h3 {
    ============================================================ */
 
 .drawing-examples-page {
-  max-width: 980px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 44px 24px 80px;
 }
 
 .drawing-intro {
   max-width: 56ch;
-  margin: 16px 0 40px;
+  margin: 16px 0 24px;
   font-size: 15px;
+  color: var(--meta);
+}
+
+.drawing-project-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding-bottom: 32px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.drawing-project-nav a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--meta);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.drawing-project-nav a:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.drawing-project {
+  margin-bottom: 72px;
+  scroll-margin-top: 104px;
+}
+
+.drawing-project-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+
+.drawing-project-pending {
+  font-size: 14px;
   color: var(--meta);
 }
 
 .drawing-gallery {
   display: flex;
   flex-direction: column;
-  gap: 48px;
 }
 
-.drawing-item {
-  border: 1px solid var(--rule);
-  background: #fff;
-  padding: 6px;
+.drawing-row {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: start;
+  border-bottom: 1px solid var(--rule);
 }
 
-.drawing-item img {
+.drawing-row:first-child { border-top: 1px solid var(--rule); }
+
+.drawing-image {
+  min-width: 0;
+}
+
+.drawing-image img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+}
+
+.drawing-title {
+  padding: 20px 20px 20px 24px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--meta);
 }
 
 /* ============================================================
@@ -1254,9 +1309,27 @@ h1, h2, h3 {
   margin-bottom: 8px;
 }
 
+.field-optional {
+  font-weight: 300;
+  color: var(--meta);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.rightmove-field {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.rightmove-field .field-help {
+  margin-top: -4px;
+}
+
 .contact-page input[type="text"],
 .contact-page input[type="email"],
 .contact-page input[type="tel"],
+.contact-page input[type="url"],
 .contact-page textarea {
   display: block;
   width: 100%;
@@ -1812,6 +1885,16 @@ h1, h2, h3 {
 
   .gallery-slide {
     margin-bottom: 24px;
+  }
+
+  /* ---------- Structural drawing examples: title stacks below image ---------- */
+
+  .drawing-row {
+    grid-template-columns: 1fr;
+  }
+
+  .drawing-title {
+    padding: 12px 0 24px;
   }
 
   /* ---------- What We Do: single column, index list stops sticking ---------- */
