@@ -16,7 +16,7 @@
   // will get one verification email from Web3Forms and needs to click
   // the link in it once — after that every submission lands in his inbox.
   // ---------------------------------------------------------------
-  var WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  var WEB3FORMS_ACCESS_KEY = 'c3690de7-d0a1-49d5-aaf3-dd5f567ddb26';
 
   var MAX_FILE_SIZE = 5 * 1024 * 1024;
   var UK_POSTCODE = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;

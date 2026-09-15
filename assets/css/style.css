@@ -156,37 +156,6 @@ h1, h2, h3 {
 }
 
 
-/* ---------- placeholders ---------- */
-
-.placeholder {
-  background: var(--warm-white);
-  border: 1px dashed var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--meta);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 12px;
-  width: 100%;
-  height: 100%;
-}
-
-.placeholder.circle { border-radius: 50%; }
-
-.copy-missing {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--meta);
-}
-
 /* ============================================================
    HOME — LHS intro text, two independently-scrolling project columns
    ============================================================ */
@@ -296,8 +265,7 @@ h1, h2, h3 {
   margin: 30px auto 40px;
 }
 
-.about-portrait img,
-.about-portrait .placeholder {
+.about-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -324,8 +292,7 @@ h1, h2, h3 {
   flex-direction: column;
 }
 
-.fixed-shell .site-header,
-.fixed-shell .site-footer {
+.fixed-shell .site-header {
   flex-shrink: 0;
   margin-top: 0;
 }
@@ -450,8 +417,7 @@ h1, h2, h3 {
   z-index: 1;
 }
 
-.plate-image img,
-.plate-image .placeholder {
+.plate-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -623,11 +589,6 @@ h1, h2, h3 {
 
 .mono-gallery .gallery-slide img {
   filter: grayscale(1) contrast(0.95);
-}
-
-.lewes-layout--single {
-  grid-template-columns: 1fr;
-  max-width: 720px;
 }
 
 /* ============================================================
@@ -898,15 +859,6 @@ h1, h2, h3 {
 
 .cv-list li {
   margin-bottom: 8px;
-}
-
-.cv-clients {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  margin-top: 8px;
 }
 
 /* ============================================================
