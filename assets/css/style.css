@@ -1849,7 +1849,9 @@ h1, h2, h3 {
     padding: 12px 0 24px;
   }
 
-  /* ---------- What We Do: single column, index list stops sticking ---------- */
+  /* ---------- What We Do: single column, index becomes a sticky
+     horizontal pill strip pinned under the header so you can jump
+     between sections without scrolling back to the top ---------- */
 
   .wwd-layout {
     display: block;
@@ -1857,18 +1859,55 @@ h1, h2, h3 {
   }
 
   .wwd-nav {
-    position: static;
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+    background: var(--ground);
+    display: block;
     max-height: none;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .wwd-nav .section-label-block {
+    position: static;
+    padding-top: 10px;
+    padding-bottom: 0;
   }
 
   .wwd-nav-list {
+    margin-top: 12px;
+    flex-direction: row;
+    overflow-x: auto;
     overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .wwd-nav-item {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-size: 0.95rem;
+  }
+
+  .wwd-nav-item.active {
+    color: var(--warm-white);
+    background: var(--ink);
+    border-color: var(--ink);
   }
 
   .wwd-sections {
     padding-left: 0;
     max-width: none;
+  }
+
+  .wwd-section {
+    scroll-margin-top: 180px;
   }
 
   /* ---------- CV: single column, index list stops sticking ---------- */
@@ -1890,14 +1929,40 @@ h1, h2, h3 {
 
   .cv-sections { max-width: none; }
 
-  /* ---------- FAQs: single column, index list stops sticking ---------- */
+  /* ---------- CV: photo pairs stack to one column so mismatched
+     aspect ratios never leave gaps or misaligned rows ---------- */
+
+  .cv-image-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* ---------- FAQs: single column, index becomes a compact sticky
+     drawer (its own internal scroll) pinned under the header, so you
+     can pick another question without scrolling back to the top ---------- */
 
   .faqs-layout {
     display: block;
     padding: 24px 0 40px;
   }
 
+  .faqs-nav {
+    position: sticky;
+    top: 70px;
+    z-index: 10;
+    background: var(--ground);
+    max-height: 42vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
   .faqs-nav-list { margin-top: 24px; }
+
+  .faqs-panel {
+    scroll-margin-top: calc(42vh + 70px);
+  }
 
   .faqs-panel,
   .faqs-contact {
