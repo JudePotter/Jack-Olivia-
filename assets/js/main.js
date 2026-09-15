@@ -18,6 +18,16 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
   var lastTop = 0;
   var active = false;
 
+  // Exposes the header's current visible height as a CSS variable so
+  // sticky elements below it (e.g. mobile section nav bars) can sit
+  // flush underneath it whether it's expanded, condensed, or hidden,
+  // instead of assuming a fixed offset that leaves a gap when the
+  // header slides away on scroll-down.
+  function updateHeaderOffset() {
+    var offset = header.classList.contains('m-hide') ? 0 : header.offsetHeight;
+    document.documentElement.style.setProperty('--mobile-header-offset', offset + 'px');
+  }
+
   function onScroll() {
     var top = window.scrollY || window.pageYOffset;
     header.classList.toggle('m-condensed', top > 30);
@@ -27,6 +37,7 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
       header.classList.remove('m-hide');
     }
     lastTop = top;
+    updateHeaderOffset();
   }
 
   function enable() {
@@ -34,6 +45,7 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
     active = true;
     lastTop = window.scrollY || window.pageYOffset;
     window.addEventListener('scroll', onScroll, { passive: true });
+    updateHeaderOffset();
   }
 
   function disable() {
@@ -41,6 +53,7 @@ document.querySelectorAll('.project-plate').forEach(function (plate) {
     active = false;
     window.removeEventListener('scroll', onScroll);
     header.classList.remove('m-condensed', 'm-hide');
+    document.documentElement.style.removeProperty('--mobile-header-offset');
   }
 
   function sync() {

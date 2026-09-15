@@ -815,6 +815,7 @@ h1, h2, h3 {
 
 .cv-image-row img {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
@@ -1860,7 +1861,8 @@ h1, h2, h3 {
 
   .wwd-nav {
     position: sticky;
-    top: 70px;
+    top: var(--mobile-header-offset, 70px);
+    transition: top 280ms ease;
     z-index: 10;
     background: var(--ground);
     display: block;
@@ -1907,7 +1909,7 @@ h1, h2, h3 {
   }
 
   .wwd-section {
-    scroll-margin-top: 180px;
+    scroll-margin-top: calc(var(--mobile-header-offset, 70px) + 110px);
   }
 
   /* ---------- CV: single column, index list stops sticking ---------- */
@@ -1947,7 +1949,8 @@ h1, h2, h3 {
 
   .faqs-nav {
     position: sticky;
-    top: 70px;
+    top: var(--mobile-header-offset, 70px);
+    transition: top 280ms ease;
     z-index: 10;
     background: var(--ground);
     max-height: 42vh;
@@ -1961,7 +1964,7 @@ h1, h2, h3 {
   .faqs-nav-list { margin-top: 24px; }
 
   .faqs-panel {
-    scroll-margin-top: calc(42vh + 70px);
+    scroll-margin-top: calc(var(--mobile-header-offset, 70px) + 42vh);
   }
 
   .faqs-panel,
